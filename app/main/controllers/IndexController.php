@@ -105,12 +105,7 @@ class IndexController extends Controller
         }
     }
 
-    public function refs()
-    {
-        var_dump($_GET);
-        $reflect = new \ReflectionClass(minidemo::class);
-        var_dump($reflect->getConstructor()->getParameters()[0]->getName());
-    }
+
 
     public function session()
     {

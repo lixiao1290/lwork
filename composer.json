@@ -12,7 +12,7 @@
     "swiftmailer/swiftmailer": "^5.4",
     "syscover/email-reader": "~2.0",
 	"php-ffmpeg/php-ffmpeg":"v0.11.0",
-	"lixiao/miniframe":"1.2"
+	"lixiao/miniframe":"1.5"
 
   },
   "autoload": {
