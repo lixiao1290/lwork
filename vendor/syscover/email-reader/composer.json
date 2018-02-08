@@ -1,0 +1,21 @@
+{
+    "name": "syscover/email-reader",
+    "description": "Emails reader library",
+    "keywords": ["email","imap","pop3","reader"],
+    "authors": [
+        {
+            "name": "SYSCOVER SL",
+            "email": "info@syscover.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "ext-imap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Syscover\\EmailReader\\": "src/Syscover/EmailReader"
+        }
+    },
+    "minimum-stability": "dev"
+}

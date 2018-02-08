@@ -1,0 +1,26 @@
+{
+  "name": "lixiao/miniframe",
+  "description": "lixiao's",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "lixiao",
+      "email": "209201763@qq.com"
+    }
+  ],
+  "require": {
+    "swiftmailer/swiftmailer": "^5.4",
+    "syscover/email-reader": "~2.0",
+	"php-ffmpeg/php-ffmpeg":"v0.11.0",
+	
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/",
+      "minicore\\": "vendor/minicore/",
+      "admin\\": "admin/",
+      "emailreader\\": "vendor/emailreader/",
+      "common\\":"common"
+    }
+  }
+}
