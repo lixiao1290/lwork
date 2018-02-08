@@ -6,11 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'minicore\\' => array($vendorDir . '/minicore'),
-    'emailreader\\' => array($vendorDir . '/emailreader'),
-    'common\\' => array($baseDir . '/common'),
-    'app\\' => array($baseDir . '/app'),
-    'admin\\' => array($baseDir . '/admin'),
+    'minicore\\' => array($vendorDir . '/minicore', $vendorDir . '/lixiao/miniframe/vendor/minicore'),
+    'emailreader\\' => array($vendorDir . '/emailreader', $vendorDir . '/lixiao/miniframe/vendor/emailreader'),
+    'common\\' => array($baseDir . '/common', $vendorDir . '/lixiao/miniframe/common'),
+    'app\\' => array($baseDir . '/app', $vendorDir . '/lixiao/miniframe/app'),
+    'admin\\' => array($baseDir . '/admin', $vendorDir . '/lixiao/miniframe/admin'),
     'Syscover\\EmailReader\\' => array($vendorDir . '/syscover/email-reader/src/Syscover/EmailReader'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),

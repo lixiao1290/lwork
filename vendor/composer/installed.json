@@ -185,6 +185,45 @@
         ]
     },
     {
+        "name": "lixiao/miniframe",
+        "version": "1.1",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lixiao1290/miniframe.git",
+            "reference": "2651094057638a309e0540315fd277db5696effa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/lixiao1290/miniframe/2651094057638a309e0540315fd277db5696effa.zip",
+            "reference": "2651094057638a309e0540315fd277db5696effa",
+            "shasum": ""
+        },
+        "time": "2018-02-08T06:19:50+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "app\\": "app/",
+                "minicore\\": "vendor/minicore/",
+                "admin\\": "admin/",
+                "emailreader\\": "vendor/emailreader/",
+                "common\\": "common"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "lixiao",
+                "email": "209201763@qq.com"
+            }
+        ],
+        "description": "lixiao's"
+    },
+    {
         "name": "monolog/monolog",
         "version": "1.23.0",
         "version_normalized": "1.23.0.0",

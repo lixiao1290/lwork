@@ -1,5 +1,5 @@
 {
-  "name": "lixiao/miniframe",
+  "name": "lixiao/miniframe-app",
   "description": "lixiao's",
   "license": "BSD-3-Clause",
   "authors": [
@@ -12,7 +12,8 @@
     "swiftmailer/swiftmailer": "^5.4",
     "syscover/email-reader": "~2.0",
 	"php-ffmpeg/php-ffmpeg":"v0.11.0",
-	
+	"lixiao/miniframe":"1.1"
+
   },
   "autoload": {
     "psr-4": {

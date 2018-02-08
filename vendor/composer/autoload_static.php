@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitffd0def001968d2b1204bba573612d8b
+class ComposerStaticInit1c34304846d2c9208d88c4cd4b941af4
 {
     public static $files = array (
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
@@ -52,22 +52,27 @@ class ComposerStaticInitffd0def001968d2b1204bba573612d8b
         'minicore\\' => 
         array (
             0 => __DIR__ . '/..' . '/minicore',
+            1 => __DIR__ . '/..' . '/lixiao/miniframe/vendor/minicore',
         ),
         'emailreader\\' => 
         array (
             0 => __DIR__ . '/..' . '/emailreader',
+            1 => __DIR__ . '/..' . '/lixiao/miniframe/vendor/emailreader',
         ),
         'common\\' => 
         array (
             0 => __DIR__ . '/../..' . '/common',
+            1 => __DIR__ . '/..' . '/lixiao/miniframe/common',
         ),
         'app\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+            1 => __DIR__ . '/..' . '/lixiao/miniframe/app',
         ),
         'admin\\' => 
         array (
             0 => __DIR__ . '/../..' . '/admin',
+            1 => __DIR__ . '/..' . '/lixiao/miniframe/admin',
         ),
         'Syscover\\EmailReader\\' => 
         array (
@@ -129,9 +134,9 @@ class ComposerStaticInitffd0def001968d2b1204bba573612d8b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitffd0def001968d2b1204bba573612d8b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitffd0def001968d2b1204bba573612d8b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitffd0def001968d2b1204bba573612d8b::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1c34304846d2c9208d88c4cd4b941af4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1c34304846d2c9208d88c4cd4b941af4::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1c34304846d2c9208d88c4cd4b941af4::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

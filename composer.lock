@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "79da3342ec5623437179071322cf98d9",
+    "content-hash": "af07dcdfc7c7b6e24c50a9b77d152215",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -184,6 +184,43 @@
                 "event-emitter"
             ],
             "time": "2017-07-17T17:39:19+00:00"
+        },
+        {
+            "name": "lixiao/miniframe",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lixiao1290/miniframe.git",
+                "reference": "2651094057638a309e0540315fd277db5696effa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/lixiao1290/miniframe/2651094057638a309e0540315fd277db5696effa.zip",
+                "reference": "2651094057638a309e0540315fd277db5696effa",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "app\\": "app/",
+                    "minicore\\": "vendor/minicore/",
+                    "admin\\": "admin/",
+                    "emailreader\\": "vendor/emailreader/",
+                    "common\\": "common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "lixiao",
+                    "email": "209201763@qq.com"
+                }
+            ],
+            "description": "lixiao's",
+            "time": "2018-02-08T06:19:50+00:00"
         },
         {
             "name": "monolog/monolog",
