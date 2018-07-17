@@ -23,7 +23,7 @@ class RunClass extends RunClassAbstract
         $path = RequestServer::analyzeUrl();
         $routArr = RequestServer::generatRoute($path);
         $_SESSION['miniroute'] = $routArr;
-//        var_dump('<pre>',$_SESSION,Configer::getConfig('app.runClass'));
+//        var_dump('<pre>',$path);exit;
 
     }
 }

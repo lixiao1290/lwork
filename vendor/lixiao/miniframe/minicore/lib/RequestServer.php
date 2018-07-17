@@ -2,7 +2,6 @@
 
 namespace minicore\lib;
 
-use minicore\config\ConfigBase;
 use app;
 use minicore\config\Configer;
 
@@ -62,9 +61,9 @@ class RequestServer extends Base
 
         $pars = explode('\\', $url);
         $pars = array_filter($pars);
-        if(count($pars)<self::$actLevel) {
-           $route= Configer::getConfig("defaultRoute"); 
-           return self::generatRoute(self::analyzeUrl($route));
+        if (count($pars) < self::$actLevel) {
+            $route = Configer::getConfig("defaultRoute");
+            return self::generatRoute(self::analyzeUrl($route));
         }
         if (strpos($url, '?')) {
             $url = substr($url, 0, strpos($url, '?'));
@@ -140,7 +139,7 @@ class RequestServer extends Base
 //            $controller="";
             Mini::$app->setControllerName($routeArr['controller']);
             Mini::$app->setController($controller);
-            $act=Mini::$app->getConfig('actPrefix') . $routeArr['act'] . Mini::$app->getConfig('actSuffix');
+            $act = Mini::$app->getConfig('actPrefix') . $routeArr['act'] . Mini::$app->getConfig('actSuffix');
             Mini::$app->setAct($act);
             if (class_exists($controller)) {
                 $controllerObj = Mini::createObj($controller);
@@ -173,15 +172,25 @@ class RequestServer extends Base
                         '/' => '\\'
                     ));
                 } else {
-                    $uri = $_SERVER['REQUEST_URI']; // echo $uri,'<br>';
-                    $root = $_SERVER['DOCUMENT_ROOT'];//  echo $root,'<br>';
-                    $scriptFileName = dirname($_SERVER['SCRIPT_FILENAME']); // echo 'scrii',$scriptFileName,'<br>';
+//                    var_dump(pathinfo($_SERVER['REQUEST_URI']));
+                    $uri = $_SERVER['REQUEST_URI'];
+//                    echo $uri, '<br>';
+                    $root = $_SERVER['DOCUMENT_ROOT'];
+//                    echo $root, '<br>';
+                    $scriptFileName = dirname($_SERVER['SCRIPT_FILENAME']);
+//                    echo 'scriptFileName', $scriptFileName, '<br>';
                     $str = strtr($scriptFileName, array(
-                        $root => null
+                        $root => ""
                     ));
-                    $rs = strtr($uri, array(
-                        $str => null
-                    )); // exit;
+//                    echo " str ", $str," uri ",$uri,'<br>';
+                    if (!empty($str)) {
+                        $rs = strtr($uri, array(
+                            $str => ""
+                        ));
+                        echo $rs;
+                    } else {
+                        $rs = $uri;
+                    }
                     return strtr($rs, array(
                         '/'         => '\\',
                         'index.php' => ''

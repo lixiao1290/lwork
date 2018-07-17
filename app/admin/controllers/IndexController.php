@@ -83,14 +83,14 @@ class IndexController extends ControllerBase
          * echo "微信浏览器允许访问";
          * }
          */
-        $this->view();
+      return   $this->view();
     }
 
     public function ffmpeg()
     {
         $ffpeg = FFMpeg::create([
-            'ffmpeg.binaries'  => 'E:\ffpeg/ffmpeg.exe',
-            'ffprobe.binaries' => 'E:\ffpeg/ffprobe.exe'
+            'ffmpeg.binaries'  => INDEX_DIR.'/binaries/ffmpeg.exe',
+            'ffprobe.binaries' => INDEX_DIR.'/binaries/ffprobe.exe'
         ]);
 
         $video = $ffpeg->open('QQ20170123-151825-HD.mp4');
@@ -293,7 +293,8 @@ class IndexController extends ControllerBase
 
     public function welcome()
     {
-        $this->view();
+        echo "ijidf";
+        return  $this->view();
     }
 
     public function main()
