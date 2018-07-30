@@ -18,7 +18,7 @@
   "autoload": {
     "psr-4": {
       "app\\": "app/",
-      "minicore\\": "vendor/minicore/",
+      "minicore\\": "vendor/lixiao/minicore/",
       "admin\\": "admin/",
       "emailreader\\": "vendor/emailreader/",
       "common\\":"common"

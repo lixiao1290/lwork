@@ -51,8 +51,7 @@ class ComposerStaticInita1c4fd79ceecb123869a59c6106d33d3
     public static $prefixDirsPsr4 = array (
         'minicore\\' => 
         array (
-            0 => __DIR__ . '/..' . '/minicore',
-            1 => __DIR__ . '/..' . '/lixiao/miniframe/minicore',
+            0 => __DIR__ . '/..' . '/lixiao/minicore',
         ),
         'emailreader\\' => 
         array (

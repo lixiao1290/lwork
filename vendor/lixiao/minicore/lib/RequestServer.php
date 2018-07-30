@@ -89,17 +89,17 @@ class RequestServer extends Base
             $act = array_pop($actArr);
             $controller = array_pop($actArr);
             if (empty($controllerId)) {
-                $controllerId = Mini::$app->getConfig('defaultController');
+                $controllerId = Mini::app()->configurator->getConfigByPatterm('mini.defaultController');
             }
 
-            Mini::$app->setModule(implode('\\', $actArr));
-            if (!Mini::$app->getModule()) {
-                Mini::$app->setModule(Mini::$app->getConfig('defaultModule'));
+            Mini::app()->setModule(implode('\\', $actArr));
+            if (!Mini::app()->getModule()) {
+                Mini::app()->setModule(Mini::app()->getConfig('defaultModule'));
             } else {
             }
             $controller = $controller;
             $routeArr = array(
-                'module'     => Mini::$app->getModule(),
+                'module'     => Mini::app()->getModule(),
                 'controller' => $controller,
                 'act'        => $act
             );
@@ -114,40 +114,42 @@ class RequestServer extends Base
      */
     public static function runRout($routeArr)
     {
-        if (array_key_exists(static::class, Mini::$app->getConfig('extentions'))) {
-            static::miniObjInitStatic(Configer::getConfig('extentions')[static::class]);
+        if (array_key_exists(static::class, Mini::app()->configurator->getConfigByName('mini')['extentions'])) {
+            static::miniObjInitStatic(Mini::app()->configurator->getConfigByName('mini')['extentions'][static::class]);
         }
         // echo self::$urlDelimiter,'ijiji';
-        if (1 == Mini::$app->getConfig('routType')) {
-            // if($config=Mini::$app->getConfig('layout')) {
+        if (1 == Mini::app()->configurator->getConfigByName('mini')['routType']) {
+            // if($config=Mini::app()->getConfig('layout')) {
             // foreach ($config as $row) {
             // self::partial($row);
             // }
             // }
             if ('' == $routeArr['controller']) {
-                $routeArr['controller'] = Mini::$app->getConfig('defaultController');
+                $routeArr['controller'] = Mini::app()->getConfig('defaultController');
             }
             if ($routeArr['act'] == '') {
 
-                $routeArr['act'] = Mini::$app->getConfig('defaultAct');
+                $routeArr['act'] = Mini::app()->configurator->getConfigByName('mini')['defaultAct'];
             }
             if ($routeArr['module']) {
-                $controller = Mini::$app->getConfig('appNamespace') . '\\' . $routeArr['module'] . '\\controllers\\' . $routeArr['controller'] . Mini::$app->getConfig('ControllerSuffix');
+                $controller = Mini::app()->configurator->getConfigByName('mini')['appNamespace'] . '\\' . $routeArr['module'] . '\\controllers\\';
+                $controller .= $routeArr['controller'] . Mini::app()->configurator->getConfigByName('mini')['ControllerSuffix'];
             } else {
-                $controller = Mini::$app->getConfig('appNamespace') . '\\' . $routeArr['controller'] . Mini::$app->getConfig('ControllerSuffix');
+                $controller = Mini::app()->configurator->getConfigByName('mini')['appNamespace'] . '\\' . $routeArr['controller'];
+                $controller .= Mini::app()->configurator->getConfigByName('mini')['ControllerSuffix'];
             }
 //            $controller="";
-            Mini::$app->setControllerName($routeArr['controller']);
-            Mini::$app->setController($controller);
-            $act = Mini::$app->getConfig('actPrefix') . $routeArr['act'] . Mini::$app->getConfig('actSuffix');
-            Mini::$app->setAct($act);
+            Mini::app()->setControllerName($routeArr['controller']);
+            Mini::app()->setController($controller);
+            $act = Mini::app()->configurator->getConfigByName('mini')['actPrefix'] . $routeArr['act'] . Mini::app()->configurator->getConfigByName('mini')['actSuffix'];
+            Mini::app()->setAct($act);
             if (class_exists($controller)) {
                 $controllerObj = Mini::createObj($controller);
-                Mini::$app->setControllerInstance($controllerObj);
-                if (method_exists($controllerObj, Mini::$app->getAct())) {
+                Mini::app()->setControllerInstance($controllerObj);
+                if (method_exists($controllerObj, Mini::app()->getAct())) {
                     call_user_func(array(
                         $controllerObj,
-                        Mini::$app->getAct()
+                        Mini::app()->getAct()
                     ));
                     exit;
                 } else {
@@ -166,7 +168,7 @@ class RequestServer extends Base
     {
         if (empty($url)) {
 
-            if (1 == Mini::$app->getConfig('urlMode')) {
+            if (1 == Mini::app()->configurator->getConfigByPatterm('mini.urlMode')) {
                 if (isset($_SERVER['PATH_INFO'])) {
                     return strtr($_SERVER['PATH_INFO'], array(
                         '/' => '\\'
@@ -209,9 +211,9 @@ class RequestServer extends Base
         $path = self::analyzeUrl($path);
         $routeArr = self::generatController($path);
         if ($routeArr['module']) {
-            $Controller = Mini::$app->getConfig('appNamespace') . '\\' . $routeArr['module'] . '\\controllers\\' . $routeArr['controller'] . Mini::$app->getConfig('ControllerSuffix');
+            $Controller = Mini::app()->getConfig('appNamespace') . '\\' . $routeArr['module'] . '\\controllers\\' . $routeArr['controller'] . Mini::app()->getConfig('ControllerSuffix');
         } else {
-            $Controller = Mini::$app->getConfig('appNamespace') . '\\' . $routeArr['controller'] . Mini::$app->getConfig('ControllerSuffix');
+            $Controller = Mini::app()->getConfig('appNamespace') . '\\' . $routeArr['controller'] . Mini::app()->getConfig('ControllerSuffix');
         }
         if (class_exists($Controller)) {
             $ControllerObj = new $Controller();

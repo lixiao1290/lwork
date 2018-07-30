@@ -21,6 +21,23 @@ class Mini
      */
     public static $app;
 
+    public static function app($name=null)
+    {
+        if (is_object(self::$app)) {
+            return self::$app;
+        }
+        if (is_array(self::$app)) {
+            if (array_key_exists(self::$app, $name)) {
+                return self::$app[$name];
+            }
+        }
+    }
+
+    public static function setApp($name, $app)
+    {
+        self::$app[$name]=$app;
+    }
+
     /**
      * Mini constructor.
      */
@@ -45,7 +62,8 @@ class Mini
             $parameter = $reflectionClass->getConstructor()->getParameters();
             if ($parameter) {
                 /**if the constuctor  has parameters*/
-                $actualParameters = array();/**   */
+                $actualParameters = array();
+                /**   */
                 foreach ($parameter as $parameter) {
                     $className = $parameter->getClass()->getName();
                     try {
@@ -64,7 +82,8 @@ class Mini
                 /**if the constuctor  has not parameters*/
                 $obj = $reflectionClass->newInstance();
             }
-        } else { /**if the class  has not constructor*/
+        } else {
+            /**if the class  has not constructor*/
             $obj = $reflectionClass->newInstanceWithoutConstructor();
         }
         return $obj;

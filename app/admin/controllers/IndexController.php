@@ -21,7 +21,7 @@ class IndexController extends ControllerBase
 
     public function initial()
     {
-        $this->assign('AssetDir', Mini::$app->getIndexDir() . "/");
+        $this->assign('AssetDir', Mini::app()->getIndexDir() . "/");
     }
 
     public function index()
@@ -116,7 +116,7 @@ class IndexController extends ControllerBase
     public function session()
     {
         //session_start();
-        Mini::$app->appPath;
+        Mini::app()->appPath;
         $sss = 5643223424;
         $_SESSION['session'] = 'ijgjaea3256233jklfak6324lkjkjkl253643kljdafdafdskj543426734456ljlka';
         var_dump(session_get_cookie_params(), session_id(), session_save_path());

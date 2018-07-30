@@ -20,7 +20,7 @@ class IndexController extends Controller
 
     public function initial()
     {
-        $this->assign('AssetDir', Mini::$app->getIndexDir() . "/");
+        $this->assign('AssetDir', Mini::app()->getIndexDir() . "/");
     }
 
     public function index()
@@ -110,7 +110,7 @@ class IndexController extends Controller
     public function session()
     {
         //session_start();
-        Mini::$app->appPath;
+        Mini::app()->appPath;
         $sss = 5643223424;
         $_SESSION['session'] = 'ijgjaea3256233jklfak6324lkjkjkl253643kljdafdafdskj543426734456ljlka';
         var_dump(session_get_cookie_params(), session_id(), session_save_path());
@@ -296,6 +296,9 @@ class IndexController extends Controller
         $this->view();
     }
 
+    /**
+     *
+     */
     public function browse()
     {
         $url = 'http://www.cipm-expo.com/e/cpxx_chs.php?ID=1389&W=http://www.cipm-expo.com/e/cplb_chs.php$ID=8^P=1^O=1';
